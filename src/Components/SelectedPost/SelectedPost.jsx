@@ -40,9 +40,11 @@ const SelectedPost = () => {
 
     const onSubmitButtonHandler = (e) => {
         e.preventDefault();
+
         if (postObject.id) {
             console.log(id);
             console.log(postObject);
+
             postService.updatePost(postObject)
                 .then((res) => {
                     console.log(res);
@@ -51,6 +53,13 @@ const SelectedPost = () => {
 
         } else {
             console.log('THERE IS NO ID SET');
+        
+            postService.createPost(postObject)
+                .then((res) => {
+                    console.log(res);
+                    navigate('/posts');
+                });
+
         }
     }
 
@@ -59,7 +68,7 @@ const SelectedPost = () => {
     }
 
 
-    
+
     return (
         <div className="selected-post">
             <form onSubmit={onSubmitButtonHandler}>

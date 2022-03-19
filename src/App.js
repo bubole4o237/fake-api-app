@@ -25,6 +25,7 @@ function App() {
         <Route exact path="/" element={<Navigate to="/posts" replace />} />
         <Route path="/posts" element={<Main />} />
         <Route path="/posts/:id" element={<SelectedPost />} />
+        <Route path="/create/post" element={<SelectedPost />} />
       </Routes>
 
       <Footer />

@@ -1,3 +1,22 @@
+///////////// Create post /////////////
+
+const createPost = async (newPost) => {
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        body: JSON.stringify({
+            title: newPost.title,
+            body: newPost.body,
+            userId: newPost.userId,
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    });
+    const result = response.json();
+    console.log(result);
+    return result;
+}
+
 
 
 //////// Get ALL posts ///////
@@ -23,6 +42,7 @@ const getOnePost = async (id) => {
 
 
 /////////////// Update Post  ///////////////
+
 const updatePost = async (post) => {
 
     const response = await fetch('https://jsonplaceholder.typicode.com/posts/1', {
@@ -62,6 +82,7 @@ const deletePost = (id) => {
 
 
 const postService = {
+    createPost,
     getAll,
     getOnePost,
     updatePost,
