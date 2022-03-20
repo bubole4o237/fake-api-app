@@ -14,7 +14,7 @@ function App() {
 
   // let navigate = useNavigate();
 
-
+  let isUpdate = true;
 
   return (
     <div className="App">
@@ -24,7 +24,9 @@ function App() {
         {/* <Route path="/" element={<Home />} /> */}
         <Route exact path="/" element={<Navigate to="/posts" replace />} />
         <Route path="/posts" element={<Main />} />
-        <Route path="/posts/:id" element={<SelectedPost />} />
+        <Route path="/posts/:id" element={<Main />} />
+        <Route path="/posts/:id/update" element={<SelectedPost isUpdate={isUpdate} />} />
+        <Route path="/user/:id/posts" element={<Main />} />
         <Route path="/create/post" element={<SelectedPost />} />
       </Routes>
 

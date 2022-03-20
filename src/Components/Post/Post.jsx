@@ -28,7 +28,7 @@ const Post = ({ userId, id, title, body }) => {
                 .then((res) => {
                     console.log(res);
                     console.log(`The post: ${post.id} was deleted successfully!`);
-                    navigate("/posts");
+                    navigate("/");
                 });
 
         } else {
@@ -47,7 +47,7 @@ const Post = ({ userId, id, title, body }) => {
                 <p>{post.body}</p>
             </div>
             <div className="post-buttons">
-                <Link to={`/posts/${id}`}>
+                <Link to={`/posts/${id}/update`}>
                     <button className="crudButtons" onClick={onClickEditPostButtonHandler}>Edit
                         {/* <img src={editButton} alt="red X" title="Show and edit" height="16" /> */}
                     </button>

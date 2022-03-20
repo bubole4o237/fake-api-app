@@ -23,11 +23,23 @@ const createPost = async (newPost) => {
 const getAll = async (currentPage, userPosts) => {
 
     let page = currentPage ? currentPage : 1;
-    let queryString = userPosts ? userPosts : '';
+    let queryString = userPosts ? userPosts : 'posts';
+    console.log(queryString + ' FROM TEST getALL');
+    console.log(page);
 
-    const result = await fetch(`https://jsonplaceholder.typicode.com/${queryString}posts?_page=${page}&_limit=9`);
-    const total = result.headers.get('x-total-count');
-    const data = await result.json();
+    const result = await fetch(`https://jsonplaceholder.typicode.com/${queryString}?_page=${page}&_limit=9`);
+    let total = result.headers.get('x-total-count');
+    console.log(total + " just a test");
+    
+    console.log(total + " just a test 222");
+    console.log(result);
+
+    let data = await result.json();
+    console.log(data);
+    if ((queryString.includes('posts/'))) {
+        total = 1;
+        data = [data];
+    }
     const arrayRes = [data, total];
     return arrayRes;
 }

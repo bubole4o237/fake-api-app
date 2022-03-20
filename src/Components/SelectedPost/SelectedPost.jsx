@@ -1,21 +1,24 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import postService from "../../services/postServices";
+import verification from "../../services/verification";
 
 
-const SelectedPost = () => {
-
+const SelectedPost = ({ isUpdate }) => {
 
     const [post, setPost] = useState({});
     const [userId, setUserId] = useState('');
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
 
+    // let updateCurrentPost = updateCurrentPost;
+
     let navigate = useNavigate();
 
     let { id } = useParams();
 
     id = Number(id);
+
     useEffect(() => {
 
         if (id) {
@@ -27,7 +30,13 @@ const SelectedPost = () => {
                     setTitle(res.title);
                     setBody(res.body);
                 });
+        } else {
+            setUserId('');
+            setTitle('');
+            setBody('');
         }
+
+
     }, [id]);
 
 
@@ -41,6 +50,20 @@ const SelectedPost = () => {
     const onSubmitButtonHandler = (e) => {
         e.preventDefault();
 
+        let myUserId = isUpdate ? userId : userId.trim();
+        let myTitle = title.trim();
+        let myBody = body.trim();
+
+        if (
+            (myUserId === '') ||
+            (myTitle === '') ||
+            (myBody === '')
+        ) {
+            alert("There is a missing data!");
+            return;
+        }
+
+
         if (postObject.id) {
             console.log(id);
             console.log(postObject);
@@ -53,7 +76,7 @@ const SelectedPost = () => {
 
         } else {
             console.log('THERE IS NO ID SET');
-        
+
             postService.createPost(postObject)
                 .then((res) => {
                     console.log(res);
@@ -65,21 +88,29 @@ const SelectedPost = () => {
 
     const onClickCancelButtonHandler = () => {
         navigate("/posts");
+        // navigate('/posts/83');
     }
-
 
 
     return (
         <div className="selected-post">
             <form onSubmit={onSubmitButtonHandler}>
-                <label htmlFor="userId">UserId: </label>
+                <label htmlFor="userId">User Id: </label>
                 <br />
                 <input
+                    disabled={isUpdate}
                     type="text"
                     name="userId"
                     id="userId"
-                    onChange={(e) => setUserId(e.target.value)}
-                    defaultValue={post.userId} />
+                    onChange={(e) => {
+                        if (verification.verifyUserInput(e.target.value, 'user ID') === false) {
+                            e.target.value = '';
+                            return;
+                        }
+                        setUserId(e.target.value)
+                    }}
+                    placeholder="user id"
+                    defaultValue={isUpdate ? post.userId : ''} />
                 <br />
                 <br />
                 <label htmlFor="title">Title: </label>
@@ -90,7 +121,8 @@ const SelectedPost = () => {
                     onChange={(e) => setTitle(e.target.value)}
                     cols="40"
                     rows="4"
-                    defaultValue={post.title}></textarea>
+                    placeholder="Title of the new post"
+                    defaultValue={isUpdate ? post.title : ""}></textarea>
                 <br />
                 <br />
                 <label htmlFor="body">Content: </label>
@@ -101,7 +133,8 @@ const SelectedPost = () => {
                     onChange={(e) => setBody(e.target.value)}
                     cols="40"
                     rows="10"
-                    defaultValue={post.body}></textarea>
+                    placeholder="Content of the post"
+                    defaultValue={isUpdate ? post.body : ""}></textarea>
                 <br />
                 <br />
                 <input type="button" onClick={onClickCancelButtonHandler} value="Cancel" />
