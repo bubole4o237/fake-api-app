@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import ReactPaginate from 'react-paginate';
 import postService from '../../services/postServices';
 import Post from '../Post/Post';
 
@@ -10,13 +11,37 @@ const Main = () => {
 
     const [posts, setPosts] = useState([]);
 
-    useEffect(() => {
-        postService.getAll()
-            .then(res => {
-                setPosts(res);
-            });
-    }, []);
+    const [pageCount, setPageCount] = useState(0);
     
+    // useEffect(() => {
+    //     postService.getAll()
+    //         .then(res => {
+    //             setPosts(res);
+    //         });
+    // }, []); 
+
+    useEffect(() => {
+        postService.getAll(1,'')
+        .then(res => {
+
+            const total = res[1];
+            console.log(total);
+            setPageCount(Math.ceil(total/9));
+            setPosts(res[0]);
+            console.log('LOG from useEffect');
+        }); 
+ 
+    }, []);
+
+
+    const onPageClickHandler = async (data) => {
+       
+        let currentPage = data.selected + 1;
+
+        const postsFromServer = await postService.getAll(currentPage, '');
+        console.log(postsFromServer);
+        setPosts(postsFromServer[0]);
+    }
 
 
     return (
@@ -35,6 +60,20 @@ const Main = () => {
                 )}
 
             </div>
+
+            <ReactPaginate
+                previousLabel={'<'}
+                nextLabel={'>'}
+                breakLabel={'...'}
+                pageCount={pageCount}
+                marginPagesDisplayed={10}
+                // pageRangeDisplayed={3}
+                onPageChange={onPageClickHandler}
+                containerClassName={'pagination-ul'}
+                pageClassName={'page-ul-li'}
+                pageLinkClassName={'page-link'}
+            />
+
         </main>
     );
 }

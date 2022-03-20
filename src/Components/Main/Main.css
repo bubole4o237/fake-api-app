@@ -5,3 +5,71 @@
     gap: 15px;
     justify-content: center;
 }
+
+
+/* <<< pagination style >>> */
+.pagination-ul {
+    width: 30%;
+    margin: 20px auto;
+    padding: 10px;
+    border: 1px solid red;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.page-ul-li, .next, .previous {
+    padding: 3px 7px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.page-ul-li:hover, .next:hover, .previous:hover {
+    /* background-color: #ccc; */
+    /* background-color: dodgerblue; */
+    background-color: #FF7E1B;
+
+    color: #fff;
+}
+
+
+.selected {
+    /* background-color: #eee; */
+    /* background-color: #FF7E1B; */
+    color: #fff;
+    background-color: dodgerblue;
+
+    border-bottom: 2px solid dodgerblue;
+    /* border-bottom: 2px solid #FF7E1B; */
+
+}
+
+.next:active, .previous:active {
+    /* background-color: dodgerblue; */
+    background-color: #ddd;
+}
+
+.page-ul-li, .break, .next, .previous {
+    list-style-type: none;
+    /* color: red; */
+}
+
+.page-ul-li:hover {
+    /* border-bottom: 2px solid #FF7E1B; */
+    /* background-color: dodgerblue;
+    color: #fff; */
+    /* position: absolute; */
+    /* bottom: -47px; */
+    /* left: 0;
+    right: 0; */
+}
+
+/* a:hover span {
+    border-bottom: 4px solid #FF7E1B;
+    position: absolute;
+    bottom: -47px;
+    left: 0;
+    right: 0;
+} */

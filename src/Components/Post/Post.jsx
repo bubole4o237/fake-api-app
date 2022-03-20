@@ -42,7 +42,7 @@ const Post = ({ userId, id, title, body }) => {
     return (
         <div className="post">
             <div className="post-body">
-                <p>Post: {post.id} / User: {post.userId}</p>
+                <p className="info-post"><span className='post-id'>Post: {post.id}</span> / <span className="user-id">User: {post.userId}</span></p>
                 <h3>Title: {post.title}</h3>
                 <p>{post.body}</p>
             </div>

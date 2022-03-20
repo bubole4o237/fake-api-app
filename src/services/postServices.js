@@ -18,17 +18,18 @@ const createPost = async (newPost) => {
 }
 
 
-
 //////// Get ALL posts ///////
 
-const getAll = async () => {
+const getAll = async (currentPage, userPosts) => {
 
-    const result = await fetch('https://jsonplaceholder.typicode.com/posts?_page=1&_limit=16');
-    return result.json();
-    // return fetch('https://jsonplaceholder.typicode.com/posts')
-    // return fetch('https://jsonplaceholder.typicode.com/posts?_page=2&_limit=9')
-    // .then((response) => response.json());
-    // .then((json) => console.log(json));
+    let page = currentPage ? currentPage : 1;
+    let queryString = userPosts ? userPosts : '';
+
+    const result = await fetch(`https://jsonplaceholder.typicode.com/${queryString}posts?_page=${page}&_limit=9`);
+    const total = result.headers.get('x-total-count');
+    const data = await result.json();
+    const arrayRes = [data, total];
+    return arrayRes;
 }
 
 
@@ -38,7 +39,6 @@ const getOnePost = async (id) => {
     const result = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
     return result.json();
 }
-
 
 
 /////////////// Update Post  ///////////////
@@ -70,16 +70,10 @@ const deletePost = (id) => {
     return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
         method: 'DELETE',
     });
-    // .then(res => {
-    //     console.log(res); 
-    //     console.log("ole");
-    //     return (res);
-    // });
 }
 
 
-
-
+////// Object to export with all CRUD functionalities ///////
 
 const postService = {
     createPost,
