@@ -107,10 +107,14 @@ const Main = () => {
         e.target.value = '';
     }
 
+
+    // let existingPosts = document.getElementsByClassName('post');
+    // console.log(existingPosts);
+
     return (
         <main>
             {/* <h2>The main content goes here!</h2> */}
-            <p>Search post/s by <strong>user id</strong> or <strong>post id</strong></p>
+            <p>Search post/s by:</p>
             <input
                 type="text"
                 onChange={searchUserPosts}
@@ -129,7 +133,7 @@ const Main = () => {
                 placeholder='Post ID'
             />
 
-        <h2>List of the posts</h2>
+            {/* <h2>List of the posts</h2> */}
 
             <div className="container-all-posts">
 
@@ -150,7 +154,7 @@ const Main = () => {
                 nextLabel={'>'}
                 breakLabel={'...'}
                 pageCount={pageCount}
-                marginPagesDisplayed={10}
+                marginPagesDisplayed={6}
                 // pageRangeDisplayed={3}
                 onPageChange={onPageClickHandler}
                 containerClassName={'pagination-ul'}

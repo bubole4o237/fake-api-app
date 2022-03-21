@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import postService from "../../services/postServices";
 import verification from "../../services/verification";
 
+import './SelectedPost.css';
 
 const SelectedPost = ({ isUpdate }) => {
 
@@ -99,6 +100,7 @@ const SelectedPost = ({ isUpdate }) => {
                 <br />
                 <input
                     disabled={isUpdate}
+                    required={true}
                     type="text"
                     name="userId"
                     id="userId"
@@ -116,6 +118,7 @@ const SelectedPost = ({ isUpdate }) => {
                 <label htmlFor="title">Title: </label>
                 <br />
                 <textarea
+                    required={true}
                     name="title"
                     id="title"
                     onChange={(e) => setTitle(e.target.value)}
@@ -128,6 +131,7 @@ const SelectedPost = ({ isUpdate }) => {
                 <label htmlFor="body">Content: </label>
                 <br />
                 <textarea
+                    required={true}
                     name="body"
                     id="body"
                     onChange={(e) => setBody(e.target.value)}
@@ -137,8 +141,8 @@ const SelectedPost = ({ isUpdate }) => {
                     defaultValue={isUpdate ? post.body : ""}></textarea>
                 <br />
                 <br />
-                <input type="button" onClick={onClickCancelButtonHandler} value="Cancel" />
-                <input type="submit" value="Save" />
+                <input className="cancel-btn" type="button" onClick={onClickCancelButtonHandler} value="Cancel" />
+                <input className="save-btn" type="submit" value="Save" />
             </form>
         </div>
     );

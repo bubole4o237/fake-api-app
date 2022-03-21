@@ -1,6 +1,69 @@
+
+
 .App {
-  text-align: center;
+	text-align: center;
+	background-color: #EDF0F3;
+	/* margin-top: 0px; */
 }
+
+
+.wrapper {
+	/* width: 1110px; */
+	border: 1px solid black;
+	margin: 0px auto;
+
+}
+
+* {
+	/* box-sizing: border-box;
+	margin: 0px;
+	padding: 0px; */
+}
+
+
+/* Tablet */
+@media only screen and (max-width: 768px) {
+	.App {
+		width: 768px;
+	}
+
+	.wrapper {
+		width: 696px;
+	}
+
+
+}
+
+
+/* Mobile device */
+@media only screen and (max-width: 375px) {
+	.App {
+		width: 375px;
+	}
+
+	.wrapper {
+		width: 327px;
+	}
+
+
+}
+
+
+/*  
+
+	desktop --> width: 
+		1440px ??? for .App
+		1110px for .wrapper
+
+	tablet --> width: 
+		768px for .App
+		696px for wrapper
+
+	mobile --> width:
+		375px for .App
+		327px for .wrapper
+		
+*/
 
 /* .App-logo {
   height: 40vmin;

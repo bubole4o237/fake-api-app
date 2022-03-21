@@ -12,28 +12,31 @@ import './App.css';
 
 function App() {
 
-  // let navigate = useNavigate();
+	// let navigate = useNavigate();
 
-  let isUpdate = true;
+	let isUpdate = true;
 
-  return (
-    <div className="App">
-      <Header />
+	return (
+		<div className="App">
+			<div className="wrapper">
 
-      <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
-        <Route exact path="/" element={<Navigate to="/posts" replace />} />
-        <Route path="/posts" element={<Main />} />
-        <Route path="/posts/:id" element={<Main />} />
-        <Route path="/posts/:id/update" element={<SelectedPost isUpdate={isUpdate} />} />
-        <Route path="/user/:id/posts" element={<Main />} />
-        <Route path="/create/post" element={<SelectedPost />} />
-      </Routes>
+				<Header />
 
-      <Footer />
+				<Routes>
+					{/* <Route path="/" element={<Home />} /> */}
+					<Route exact path="/" element={<Navigate to="/posts" replace />} />
+					<Route path="/posts" element={<Main />} />
+					<Route path="/posts/:id" element={<Main />} />
+					<Route path="/posts/:id/update" element={<SelectedPost isUpdate={isUpdate} />} />
+					<Route path="/user/:id/posts" element={<Main />} />
+					<Route path="/create/post" element={<SelectedPost />} />
+				</Routes>
 
-    </div>
-  );
+				<Footer />
+
+			</div>
+		</div>
+	);
 }
 
 export default App;

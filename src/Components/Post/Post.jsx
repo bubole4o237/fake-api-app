@@ -41,23 +41,31 @@ const Post = ({ userId, id, title, body }) => {
 
     return (
         <div className="post">
-            <div className="post-body">
-                <p className="info-post"><span className='post-id'>Post: {post.id}</span> / <span className="user-id">User: {post.userId}</span></p>
-                <h3>Title: {post.title}</h3>
-                <p>{post.body}</p>
+            <div className="post-wrapper">
+                <div className="post-top">
+                    <p className="info-post"><span className="user-id">User: {post.userId}</span> / <span className='post-id'>Post: {post.id}</span></p>
+
+                </div>
+
+                <div className="post-body">
+                    <h3>Title: {post.title}</h3>
+                    <p>{post.body}</p>
+                </div>
             </div>
+
             <div className="post-buttons">
-                <Link to={`/posts/${id}/update`}>
-                    <button className="crudButtons" onClick={onClickEditPostButtonHandler}>Edit
-                        {/* <img src={editButton} alt="red X" title="Show and edit" height="16" /> */}
-                    </button>
-                </Link>
                 {/* <Link to={`/posts/${id}`}> */}
-                <button className="crudButtons" onClick={onClickDeletePostButtonHandler}>Delete
+                <button className="crudButtons del-btn" onClick={onClickDeletePostButtonHandler}>Delete
                     {/* <img src={editButton} alt="red X" title="Show and edit" height="16" /> */}
                 </button>
                 {/* </Link> */}
+                <Link to={`/posts/${id}/update`}>
+                    <button className="crudButtons edit-btn" onClick={onClickEditPostButtonHandler}>Edit
+                        {/* <img src={editButton} alt="red X" title="Show and edit" height="16" /> */}
+                    </button>
+                </Link>
             </div>
+
         </div>
     );
 }

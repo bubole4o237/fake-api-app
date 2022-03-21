@@ -1,0 +1,60 @@
+.header {
+    margin-top: 0px;
+}
+
+.div-header {
+    height: 20vh;
+    /* position:fixed; */
+    margin: 0px;
+    /* position: fixed;
+    position:absolute; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    /* background: radial-gradient(circle at 49% -52%, #385f87, #1d3247 52%); */
+    /* background-image: radial-gradient(circle at 49% -52%, rgb(56, 95, 135), rgb(29, 50, 71) 52%); */
+    /* background-color: #2D4157; */
+    background-color: #1e3147;
+    color: #fff;
+}
+
+.h1-header {
+    margin: 20px 50px;
+}
+
+Link {
+    /* text-decoration: none; */
+}
+
+.button-header {
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    min-width: 180px;
+    border-radius: 30px;
+    color: #fff;
+    background-color: #cb3b43;
+    cursor: pointer;
+    border: none;
+}
+
+.button-header:hover {
+    color:#cb3b43;
+    background-color: #fff;
+}
+
+
+/* for delete
+background-color: #617385;
+
+for posts
+background-color: #b26492; magenta
+background-color: #6381b8; blue
+background-color: #95c5a6; green
+background-color: #E8B75C; yellow-orange
+background-color: #7485C8; violet
+background-color: #e5774c; orange
+
+*/

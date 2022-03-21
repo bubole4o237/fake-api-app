@@ -1,0 +1,65 @@
+.selected-post {
+    padding: 25px;
+}
+
+
+.selected-post input#userId {
+    margin-top: 8px;
+    border-radius: 8px;
+    outline: 2px solid #1e3147;
+    outline-offset: -1px;
+}
+
+
+textarea {
+    margin-top: 8px;
+    border-radius: 8px;
+    outline: 2px solid #1e3147;
+    outline-offset: -1px;
+    padding: 5px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+}
+
+textarea:focus, input#userId:focus {
+    outline: 2px solid #cb3b43;
+    outline-offset: -1px;
+}
+
+input.save-btn, input.cancel-btn {
+    min-width: 60px;
+    padding: 4px 0px;
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background-color: #1e3147;
+    color: #fff;
+
+}
+
+
+.save-btn {
+    background-color: #cb3b43;
+    color: #fff;
+}
+
+.cancel-btn:hover {
+    background-color: #fff;
+    color: #1e3147;
+    outline-offset: -4px;
+    outline: 2px solid #1e3147;
+}
+
+.save-btn:hover {
+    background-color: #fff;
+    color: #cb3b43;
+    outline-offset: -4px;
+    outline: 2px solid #cb3b43;
+}
