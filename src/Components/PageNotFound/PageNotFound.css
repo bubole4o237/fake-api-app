@@ -1,0 +1,31 @@
+.page-not-found {
+    widtH: 80%;
+    margin: 100px auto;
+
+}
+
+.page-not-found p {
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.page-not-found button {
+    min-width: 100px;
+    padding: 10px 10px;
+    
+    border-radius: 18px;
+    background-color: #1e3147;
+    color: #fff;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.page-not-found button:hover {
+    background-color: #fff;
+    color: #1e3147;
+    outline-offset: -2px;
+    outline: 2px solid #1e3147;
+
+}

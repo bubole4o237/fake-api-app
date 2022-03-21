@@ -12,8 +12,6 @@ const SelectedPost = ({ isUpdate }) => {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
 
-    // let updateCurrentPost = updateCurrentPost;
-
     let navigate = useNavigate();
 
     let { id } = useParams();

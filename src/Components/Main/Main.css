@@ -5,18 +5,15 @@ main {
 .container-all-posts {
     width: 1110px;
     margin: 10px auto;
+
     display: flex;
     flex-direction: row;
-    /* flex-direction: column; */
     flex-wrap: wrap;
     gap: 2em;
     justify-content: center;
-    /* align-items: center; */
+
     padding: 20px 0px;
-    /* border: 1px solid red; */
     align-content: space-around;
-    /* align-content:space-between; */
-    /* height: 1500px; */
 }
 
 
@@ -30,13 +27,12 @@ main {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-around;
+    justify-content: center;
 }
 
 .page-ul-li, .next, .previous {
-    /* padding: 3px 7px; */
     padding: 10px;
     border: 2px solid #fff;
-    /* border-radius: 5px; */
     border-radius: 8px;
     cursor: pointer;
     background-color: #1e3147;
@@ -48,9 +44,6 @@ main {
     color: #1e3147;
     background-color: #EDF0F3;
     border: 2px solid #EDF0F3;
-
-
-    /* color: #fff; */
 }
 
 .page-ul-li:hover, .next:hover, .previous:hover {
@@ -67,21 +60,17 @@ main {
 }
 
 .next:active, .previous:active, .page-ul-li:active {
-    /* background-color: dodgerblue; */
-    /* background-color: #ddd; */
     background-color: #EDF0F3;
 
 }
 
 .page-ul-li, .break, .next, .previous {
     list-style-type: none;
-    /* color: red; */
 }
 
 input[type="text"] {
     max-width: 60px;
     text-align: center;
-    /* font-size: 18px; */
     line-height: 20px;
     cursor: pointer;
     border-width: 1px;
@@ -99,30 +88,4 @@ main input {
 
 main span {
     padding: 0px 10px;
-}
-
-/* Tablet */
-@media only screen and (max-width: 768px) {
-
-    .container-all-posts {
-        width: 696px;
-    }
-
-
-}
-
-
-/* Mobile device */
-@media only screen and (max-width: 375px) {
-
-
-    .container-all-posts {
-        width: 327px;
-    }
-
-    h1 {
-        font-size: 20px;
-    }
-
-
 }

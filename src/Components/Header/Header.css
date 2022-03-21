@@ -3,30 +3,27 @@
 }
 
 .div-header {
-    height: 20vh;
-    /* position:fixed; */
+    min-height: 20vh;
+    padding-bottom: 10px;
     margin: 0px;
-    /* position: fixed;
-    position:absolute; */
+  
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    /* background: radial-gradient(circle at 49% -52%, #385f87, #1d3247 52%); */
-    /* background-image: radial-gradient(circle at 49% -52%, rgb(56, 95, 135), rgb(29, 50, 71) 52%); */
-    /* background-color: #2D4157; */
+    
     background-color: #1e3147;
     color: #fff;
 }
 
-.h1-header {
-    margin: 20px 50px;
+
+h1 {
+    font-size: 30px;
+    width: 40%;
+    margin: 0px 40px;
 }
 
-Link {
-    /* text-decoration: none; */
-}
 
 .button-header {
     padding: 10px;

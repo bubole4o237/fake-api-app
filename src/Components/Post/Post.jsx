@@ -54,14 +54,10 @@ const Post = ({ userId, id, title, body }) => {
             </div>
 
             <div className="post-buttons">
-                {/* <Link to={`/posts/${id}`}> */}
                 <button className="crudButtons del-btn" onClick={onClickDeletePostButtonHandler}>Delete
-                    {/* <img src={editButton} alt="red X" title="Show and edit" height="16" /> */}
                 </button>
-                {/* </Link> */}
                 <Link to={`/posts/${id}/update`}>
                     <button className="crudButtons edit-btn" onClick={onClickEditPostButtonHandler}>Edit
-                        {/* <img src={editButton} alt="red X" title="Show and edit" height="16" /> */}
                     </button>
                 </Link>
             </div>

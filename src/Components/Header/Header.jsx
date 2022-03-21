@@ -6,12 +6,11 @@ const Header = () => {
         <header className="header">
             <div className="div-header">
                 <Link to="/">
-                    <button className="button-header hom-btn">Home</button>
+                    <button className="button-header home-btn">Home</button>
                 </Link>
                 <h1 className="h1-header">Welcome to our website for posts</h1>
-                {/* <p>This is a ReactJS app using a fake api including CRUD operations on posts. </p> */}
                 <Link to="/create/post">
-                    <button className="button-header">Create new post</button>
+                    <button className="button-header create-btn">Create post</button>
                 </Link>
             </div>
         </header>

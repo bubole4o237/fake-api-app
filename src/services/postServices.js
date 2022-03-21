@@ -1,20 +1,25 @@
 ///////////// Create post /////////////
 
 const createPost = async (newPost) => {
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
-        method: 'POST',
-        body: JSON.stringify({
-            title: newPost.title,
-            body: newPost.body,
-            userId: newPost.userId,
-        }),
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-        },
-    });
-    const result = response.json();
-    console.log(result);
-    return result;
+    try {
+
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            body: JSON.stringify({
+                title: newPost.title,
+                body: newPost.body,
+                userId: newPost.userId,
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        });
+        const result = await response.json();
+        console.log(result);
+        return result;
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 
@@ -24,32 +29,41 @@ const getAll = async (currentPage, userPosts) => {
 
     let page = currentPage ? currentPage : 1;
     let queryString = userPosts ? userPosts : 'posts';
-    console.log(queryString + ' FROM TEST getALL');
-    console.log(page);
+    // console.log(queryString + ' query string');
+    // console.log(page);
 
-    const result = await fetch(`https://jsonplaceholder.typicode.com/${queryString}?_page=${page}&_limit=9`);
-    let total = result.headers.get('x-total-count');
-    console.log(total + " just a test");
-    
-    console.log(total + " just a test 222");
-    console.log(result);
+    try {
 
-    let data = await result.json();
-    console.log(data);
-    if ((queryString.includes('posts/'))) {
-        total = 1;
-        data = [data];
+        const result = await fetch(`https://jsonplaceholder.typicode.com/${queryString}?_page=${page}&_limit=9`);
+        let total = result.headers.get('x-total-count');
+        // console.log(total + " total");
+
+        // console.log(result);
+
+        let data = await result.json();
+        console.log(data);
+        if ((queryString.includes('posts/'))) {
+            total = 1;
+            data = [data];
+        }
+        const arrayRes = [data, total];
+        return arrayRes;
+    } catch(err) {
+        console.log(err);
     }
-    const arrayRes = [data, total];
-    return arrayRes;
 }
 
 
 /////////// Get ONE post by ID /////////
 
 const getOnePost = async (id) => {
-    const result = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
-    return result.json();
+    try {
+
+        const result = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+        return result.json();
+    } catch(err) {
+        console.log(err);
+    }
 }
 
 
@@ -57,21 +71,27 @@ const getOnePost = async (id) => {
 
 const updatePost = async (post) => {
 
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts/1', {
-        method: 'PUT',
-        body: JSON.stringify({
-            id: post.id,
-            title: post.title,
-            body: post.body,
-            userId: post.userId,
-        }),
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-        },
-    });
+    try {
 
-    console.log(`The post: ${post.id} was successfully updated!`);
-    return response.json();
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts/1', {
+            method: 'PUT',
+            body: JSON.stringify({
+                id: post.id,
+                title: post.title,
+                body: post.body,
+                userId: post.userId,
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        });
+        
+        console.log(`The post: ${post.id} was successfully updated!`);
+        return response.json();
+
+    } catch(err) {
+        console.log(err);
+    }
 
 }
 
@@ -81,7 +101,9 @@ const updatePost = async (post) => {
 const deletePost = (id) => {
     return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
         method: 'DELETE',
-    });
+    })
+        .then(res => res)
+        .catch(err => console.log(err));
 }
 
 

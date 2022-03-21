@@ -19,16 +19,7 @@ const Main = () => {
     const [search, setSearch] = useState('');
 
     let navigate = useNavigate();
-    // const [page, setSearch] = useState('');
-    // let search = '';
-    // const [creatorId, setCreatorId] = useState('');
-
-    // useEffect(() => {
-    //     postService.getAll()
-    //         .then(res => {
-    //             setPosts(res);
-    //         });
-    // }, []); 
+   
 
     useEffect(() => {
         postService.getAll(1, search)
@@ -65,11 +56,7 @@ const Main = () => {
         if (verification.verifyUserInput(input, 'userId') === false) {
             return;
         }
-        // if (input === '0' || isNaN(input)) {
-        //     alert('The userId should be an integer number greater than 0');
-
-        //     return;
-        // }; 
+        
 
         let searchPattern = `users/${input}/posts`;
         console.log(searchPattern);
@@ -108,12 +95,10 @@ const Main = () => {
     }
 
 
-    // let existingPosts = document.getElementsByClassName('post');
-    // console.log(existingPosts);
+   
 
     return (
         <main>
-            {/* <h2>The main content goes here!</h2> */}
             <p>Search post/s by:</p>
             <input
                 type="text"
@@ -155,7 +140,7 @@ const Main = () => {
                 breakLabel={'...'}
                 pageCount={pageCount}
                 marginPagesDisplayed={6}
-                // pageRangeDisplayed={3}
+                // pageRangeDisplayed={1}
                 onPageChange={onPageClickHandler}
                 containerClassName={'pagination-ul'}
                 pageClassName={'page-ul-li'}
